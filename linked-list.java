@@ -47,5 +47,34 @@ public class LinkedList {
 		}
 		this.size++;
 	}
+private Node getNodeAt(int index) throws Exception {
+		if (index < 0 || index >= this.size) {
+			throw new Exception("Invalid Index");
+		}
+		int counter = 0;
+		Node temp = this.head;
+		while (counter < index) {
+			temp = temp.next;
+			counter++;
+		}
 
+		return temp;
+	}
+
+	public void addAt(int data, int index) throws Exception {
+		if (index < 0 || index > this.size) {
+			throw new Exception("Invalid index");
+		}
+		if (index == 0) {
+			this.addFirst(data);
+		} else if (index == this.size) {
+			this.addLast(data);
+		} else {
+			Node temp = this.getNodeAt(index - 1);
+			Node node = new Node(data, temp.next);
+			temp.next = node;
+			this.size++;
+		}
+
+	}
 
