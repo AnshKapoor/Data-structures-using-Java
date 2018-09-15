@@ -19,4 +19,33 @@ public class LinkedList {
 		this.tail = null;
 		this.size = 0;
 	}
+            public int size() {
+		return this.size;
+	}
+
+	public boolean isEmpty() {
+		return this.size() == 0;
+	}
+
+	public void addFirst(int data) {
+		Node node = new Node(data, this.head);
+		this.head = node;
+		if (this.isEmpty()) {
+			this.tail = node;
+		}
+		this.size++;
+	}
+
+	public void addLast(int data) {
+		Node node = new Node(data, null);
+		if (this.isEmpty()) {
+			this.head = node;
+			this.tail = node;
+		} else {
+			this.tail.next = node;
+			this.tail = node;
+		}
+		this.size++;
+	}
+
 
