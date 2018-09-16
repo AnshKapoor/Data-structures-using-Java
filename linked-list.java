@@ -77,4 +77,28 @@ private Node getNodeAt(int index) throws Exception {
 		}
 
 	}
+                public void display() {
+		Node temp = this.head;
+		while (temp != null) {
+			System.out.print(temp.data + "=>");
+			temp = temp.next;
+		}
+		System.out.println("END");
+	}
+
+	public int getFirst() throws Exception {
+		if (this.isEmpty()) {
+			throw new Exception("List is Empty");
+		}
+
+		return this.head.data;
+	}
+
+	public int getLast() throws Exception {
+		if (this.isEmpty()) {
+			throw new Exception("List is Empty");
+		}
+
+		return this.tail.data;
+	}
 
