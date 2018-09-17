@@ -102,3 +102,66 @@ private Node getNodeAt(int index) throws Exception {
 		return this.tail.data;
 	}
 
+public int getAt(int index) throws Exception {
+		if (this.isEmpty()) {
+			throw new Exception("List is Empty");
+		}
+
+		if (index < 0 || index >= this.size) {
+			throw new Exception("Invalid index");
+		}
+
+		return this.getNodeAt(index).data;
+	}
+
+	public void removeFirst() throws Exception {
+		if (this.isEmpty()) {
+			throw new Exception("List is Empty");
+		}
+
+		if (this.size == 1) {
+			this.head = null;
+			this.tail = null;
+		} else {
+			this.head = this.head.next;
+		}
+		this.size--;
+	}
+
+	public void removeLast() throws Exception {
+		if (this.isEmpty()) {
+			throw new Exception("List is Empty");
+		}
+
+		if (this.size == 1) {
+			this.head = null;
+			this.tail = null;
+		} else {
+			Node nm2 = getNodeAt(this.size - 2);
+			nm2.next = null;
+			this.tail = nm2;
+		}
+		this.size--;
+	}
+
+	public void removeAt(int index) throws Exception {
+		if (this.isEmpty()) {
+			throw new Exception("List is Empty");
+		}
+
+		if (index < 0 || index >= this.size) {
+			throw new Exception("Invalid Index");
+		}
+
+		if (index == 0) {
+			this.removeFirst();
+		} else if (index == this.size - 1) {
+			this.removeLast();
+		} else {
+			Node nm1 = this.getNodeAt(index - 1);
+			nm1.next = nm1.next.next;
+			this.size--;
+		}
+	}
+
+
