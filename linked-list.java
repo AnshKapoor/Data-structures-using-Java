@@ -163,5 +163,53 @@ public int getAt(int index) throws Exception {
 			this.size--;
 		}
 	}
+public void reverseDI() throws Exception {
+		int left = 0, right = this.size - 1;
+		while (left <= right) {
+			Node templeft = this.getNodeAt(left);
+			Node tempright = this.getNodeAt(right);
+
+			int temp = templeft.data;
+			templeft.data = tempright.data;
+			tempright.data = temp;
+			left++;
+			right--;
+
+		}
+	}
+
+	public void reversePI() {
+		Node prev = this.head;
+		Node curr = prev.next;
+		while (curr != null) {
+			Node tempprev = prev;
+			Node tempcurr = curr;
+
+			prev = curr;
+			curr = curr.next;
+			tempcurr.next = tempprev;
+		}
+
+		Node temp = this.head;
+		this.head = this.tail;
+		this.tail = temp;
+		this.tail.next = null;
+	}
+
+	public void reversePR() {
+		reversePR(this.head);
+		Node temp = this.head;
+		this.head = this.tail;
+		this.tail = temp;
+		this.tail.next = null;
+	}
+
+	private void reversePR(Node node) {
+		if (node == this.tail) {
+			return;
+		}
+		reversePR(node.next);
+		node.next.next = node;
+	}
 
 
