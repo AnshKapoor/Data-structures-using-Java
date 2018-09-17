@@ -253,5 +253,22 @@ public void reverseDR() {
 
 		return slow;
 	}
+public int kthfromLast(int index) throws Exception {
+		if (index == 0 || index > this.size) {
+			throw new Exception("Invalid Index");
+		}
+		Node slow = this.head;
+		Node fast = this.head;
+
+		for (int i = 0; i < index; i++) {
+			fast = fast.next;
+		}
+		while (fast != null) {
+			slow = slow.next;
+			fast = fast.next;
+		}
+
+		return slow.data;
+	}
 
 
