@@ -271,4 +271,30 @@ public int kthfromLast(int index) throws Exception {
 		return slow.data;
 	}
 
+public LinkedList merge(LinkedList other) {
+		LinkedList rv = new LinkedList();
+
+		Node thistemp = this.head, othertemp = other.head;
+		while (thistemp != null && othertemp != null) {
+			if (thistemp.data < othertemp.data) {
+				rv.addLast(thistemp.data);
+				thistemp = thistemp.next;
+			} else {
+				rv.addLast(othertemp.data);
+				othertemp = othertemp.next;
+			}
+		}
+
+		while (thistemp != null) {
+			rv.addLast(thistemp.data);
+			thistemp = thistemp.next;
+		}
+		while (othertemp != null) {
+			rv.addLast(othertemp.data);
+			othertemp = othertemp.next;
+		}
+
+		return rv;
+	}
+
 
