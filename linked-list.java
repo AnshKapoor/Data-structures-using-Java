@@ -211,5 +211,47 @@ public void reverseDI() throws Exception {
 		reversePR(node.next);
 		node.next.next = node;
 	}
+public void reverseDR() {
+		HeapMover obj = new HeapMover(this.head);
+		reverseDR(obj, this.head, 0);
+	}
+
+	private void reverseDR(HeapMover left, Node right, int level) {
+		if (right == null) {
+			return;
+		}
+		reverseDR(left, right.next, level + 1);
+		if (level >= this.size / 2) {
+			int temp = left.node.data;
+			left.node.data = right.data;
+			right.data = temp;
+
+			left.node = left.node.next;
+		}
+	}
+
+	private class HeapMover {
+		Node node;
+
+		HeapMover(Node node) {
+			this.node = node;
+		}
+	}
+
+	public int mid() {
+		return getMidNode().data;
+	}
+
+	private Node getMidNode() {
+		Node fast = this.head;
+		Node slow = this.head;
+
+		while (fast.next != null && fast.next.next != null) {
+			fast = fast.next.next;
+			slow = slow.next;
+		}
+
+		return slow;
+	}
 
 
