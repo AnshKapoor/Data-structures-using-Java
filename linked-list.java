@@ -321,6 +321,13 @@ public LinkedList merge(LinkedList other) {
 
 		return list1.merge(list2);
 	}
+private LinkedList(Node head, Node tail, int size) {
+		this.head = head;
+		this.tail = tail;
+		this.size = size;
+	}
+}
+
 
 
 
