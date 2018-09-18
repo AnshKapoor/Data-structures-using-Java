@@ -296,5 +296,31 @@ public LinkedList merge(LinkedList other) {
 
 		return rv;
 	}
+                public void MergeSort() {
+		LinkedList sorted = mergeSortHelper(this.head, this.tail);
+		this.head = sorted.head;
+		this.tail = sorted.tail;
+		this.size = sorted.size;
+
+	}
+
+	        private LinkedList mergeSortHelper(Node low, Node high) {
+		if (this.size() == 1) {
+			return this;
+		}
+
+		Node mid = getMidNode();
+		Node midnext = mid.next;
+		mid.next = null;
+
+		LinkedList list1 = new LinkedList(low, mid, (this.size() + 1) / 2);
+		LinkedList list2 = new LinkedList(midnext, high, this.size() / 2);
+
+		list1.MergeSort();
+		list2.MergeSort();
+
+		return list1.merge(list2);
+	}
+
 
 
