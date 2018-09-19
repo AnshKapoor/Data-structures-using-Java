@@ -26,3 +26,7 @@ public void push(int item) {
 	public int top() throws Exception {
 		return this.list.getFirst();
 	}
+public void display() {
+		this.list.display();
+	}
+}
