@@ -13,3 +13,10 @@ public class GenericTree {
 			children = new ArrayList<>();
 		}
 	}
+        private Node root;
+	private int size = 0;
+
+	GenericTree() {
+		Scanner s = new Scanner(System.in);
+		this.root = takeInput(s, null, 0);
+	}
