@@ -105,3 +105,19 @@ private int size2(Node node) {
 		return height;
 
 	}
+public boolean find(int data) {
+		return this.find(this.root, data);
+	}
+
+	private boolean find(Node node, int data) {
+		if (node.data == data) {
+			return true;
+		}
+		for (int i = 0; i < node.children.size(); i++) {
+			boolean isfound = this.find(node.children.get(i), data);
+			if (isfound) {
+				return true;
+			}
+		}
+		return false;
+	}
