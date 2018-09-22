@@ -87,3 +87,21 @@ private int size2(Node node) {
 
 		return max;
 	}
+
+
+	public int height() {
+		return this.height(this.root);
+	}
+
+	private int height(Node node) {
+		int height = -1;
+		for (int i = 0; i < node.children.size(); i++) {
+			int heightofchild = this.height(node.children.get(i));
+			if (heightofchild > height) {
+				height = heightofchild;
+			}
+		}
+		height = height + 1;
+		return height;
+
+	}
