@@ -37,3 +37,10 @@ private Node takeInput(Scanner s, Node parent, int ithchild) {
 		}
 		return node;
 	}
+public int size() {
+		return this.size;
+	}
+
+	public void display() {
+		this.display(this.root);
+	}
