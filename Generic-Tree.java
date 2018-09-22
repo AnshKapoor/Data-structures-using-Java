@@ -60,3 +60,30 @@ private void display(Node node) {
 		return this.size2(this.root);
 	}
 
+private int size2(Node node) {
+		int rv = 0;
+		for (int i = 0; i < node.children.size(); i++) {
+			int childSize = this.size2(node.children.get(i));
+			rv = rv + childSize;
+		}
+
+		rv = rv + 1;
+
+		return rv;
+	}
+
+	public int max() {
+		return this.max(this.root);
+	}
+
+	private int max(Node node) {
+		int max = node.data;
+		for (int i = 0; i < node.children.size(); i++) {
+			int maxinchild = this.max(node.children.get(i));
+			if (maxinchild > max) {
+				max = maxinchild;
+			}
+		}
+
+		return max;
+	}
