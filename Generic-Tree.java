@@ -44,3 +44,19 @@ public int size() {
 	public void display() {
 		this.display(this.root);
 	}
+
+private void display(Node node) {
+		System.out.print(node.data + "=>");
+		for (int i = 0; i < node.children.size(); i++) {
+			System.out.print(node.children.get(i).data + ",");
+		}
+		System.out.println("END");
+		for (int i = 0; i < node.children.size(); i++) {
+			this.display(node.children.get(i));
+		}
+	}
+
+	public int size2() {
+		return this.size2(this.root);
+	}
+
