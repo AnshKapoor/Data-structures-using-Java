@@ -121,3 +121,22 @@ public boolean find(int data) {
 		}
 		return false;
 	}
+
+public void mirror() {
+		this.mirror(this.root);
+	}
+
+	private void mirror(Node node) {
+		int left = 0, right = node.children.size() - 1;
+		while (left <= right) {
+			Node temp = node.children.get(left);
+			node.children.set(left, node.children.get(right));
+			node.children.set(right, temp);
+			left++;
+			right--;
+		}
+		for (int i = 0; i < node.children.size(); i++) {
+			this.mirror(node.children.get(i));
+		}
+
+	}
