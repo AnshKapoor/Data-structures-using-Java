@@ -140,3 +140,15 @@ public void mirror() {
 		}
 
 	}
+public void printAtLevel(int level) {
+		this.printAtLevel(this.root, level);
+	}
+
+	private void printAtLevel(Node node, int level) {
+		if (level == 0) {
+			System.out.println(node.data);
+		}
+		for (int i = 0; i < node.children.size(); i++) {
+			this.printAtLevel(node.children.get(i), level - 1);
+		}
+	}
