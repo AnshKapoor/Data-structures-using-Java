@@ -38,6 +38,42 @@ class Calculator implements ActionListener
         //Adding components to the frame
         f.add(l1);
         f.add(l2);
+         public void actionPerformed(ActionEvent e)
+    {
+        int n1=Integer.parseInt(t1.getText());
+        int n2=Integer.parseInt(t2.getText());
+        
+        if(e.getSource()==b1)
+        {
+            t3.setText(String.valueOf(n1+n2));
+        }
+            
+        if(e.getSource()==b2)
+        {
+            t3.setText(String.valueOf(n1-n2));
+        }
+        
+        if(e.getSource()==b3)
+        {
+            t3.setText(String.valueOf(n1*n2));
+        }
+        
+        if(e.getSource()==b4)
+        {
+            t3.setText(String.valueOf(n1/n2));
+        }
+        
+        if(e.getSource()==b5)
+        {
+            System.exit(0);
+        }
+    }
+    
+    public static void main(String[] args)
+    {
+        new Calculator();
+    }
+}
         f.add(l3);
         
         f.add(t1);
